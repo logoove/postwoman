@@ -1,0 +1,98 @@
+/**
+  Main Themes:
+  - dark (default)
+  - light
+  - black
+  - auto
+ */
+
+// Dark is the default theme variant.
+@mixin darkTheme {
+  // Dark Background color
+  --bg-dark-color: rgb(41, 42, 45);
+  // Background color
+  --bg-color: rgb(37, 38, 40);
+  // Auto-complete color
+  --atc-color: rgb(49, 49, 55);
+  // Text color
+  --fg-color: rgb(247, 248, 248);
+  // Light Text color
+  --fg-light-color: rgb(150, 155, 160);
+  // Border color
+  --brd-color: rgb(48, 47, 55);
+  // Error color
+  --err-color: rgb(41, 42, 45);
+  // Acent color
+  --ac-color: #50fa7b;
+  --ac-sel-color: rgb(80, 250, 123, 0.8);
+  // Active text color
+  --act-color: rgb(37, 38, 40);
+}
+
+:root {
+  @include darkTheme;
+}
+
+@media(prefers-color-scheme: dark) {
+  :root.auto {
+    @include darkTheme;
+  }
+}
+
+@mixin lightTheme {
+  // Dark Background color
+  --bg-dark-color: #eeeeee;
+  // Background color
+  --bg-color: #ffffff;
+  // Auto-complete color
+  --atc-color: #ebebeb;
+  // Text color
+  --fg-color: #525252;
+  // Light Text color
+  --fg-light-color: rgb(150, 155, 160);
+  // Border color
+  --brd-color: #eeeeed;
+  // Error color
+  --err-color: #eeeeee;
+  // Acent color
+  --ac-color: #57b5f9;
+  --ac-sel-color: #57b5f9;
+  // Active text color
+  --act-color: #ffffff;
+}
+
+:root.light {
+  @include lightTheme;
+}
+
+@media(prefers-color-scheme: light) {
+  :root.auto {
+    @include lightTheme;
+  }
+}
+
+@mixin blackTheme {
+  // Dark Background color
+  --bg-dark-color: rgb(8, 8, 8);
+  // Background color
+  --bg-color: #000000;
+  // Auto-complete color
+  --atc-color: rgb(18, 18, 18);
+  // Text color
+  --fg-color: rgb(250, 250, 250);
+  // Light Text color
+  --fg-light-color: rgb(100, 100, 100);
+  // Border color
+  --brd-color: rgb(16, 16, 16);
+  // Error color
+  --err-color: rgb(8, 8, 8);
+  // Acent color
+  --ac-color: #50fa7b;
+  --ac-sel-color: rgb(80, 250, 123, 0.8);
+  // Active text color
+  --act-color: #000000;
+}
+
+:root.black {
+  @include blackTheme;
+}

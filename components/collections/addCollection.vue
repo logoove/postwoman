@@ -1,0 +1,62 @@
+<template>
+  <modal v-if="show" @close="hideModal">
+    <div slot="header">
+      <ul>
+        <li>
+          <div class="flex-wrap">
+            <h3 class="title">新的集合</h3>
+            <div>
+              <button class="icon" @click="hideModal">
+                <i class="material-icons">close</i>
+              </button>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div slot="body">
+      <ul>
+        <li>
+          <input type="text" v-model="name" placeholder="我的新集合" />
+        </li>
+      </ul>
+    </div>
+    <div slot="footer">
+      <ul>
+        <li>
+          <button class="icon" @click="addNewCollection">
+            <i class="material-icons">add</i>
+            <span>创建</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+  </modal>
+</template>
+
+<script>
+export default {
+  props: {
+    show: Boolean
+  },
+  components: {
+    modal: () => import("../../components/modal")
+  },
+  data() {
+    return {
+      name: undefined
+    };
+  },
+  methods: {
+    addNewCollection() {
+      this.$store.commit("postwoman/addNewCollection", {
+        name: this.$data.name
+      });
+      this.$emit("hide-modal");
+    },
+    hideModal() {
+      this.$emit("hide-modal");
+    }
+  }
+};
+</script>
